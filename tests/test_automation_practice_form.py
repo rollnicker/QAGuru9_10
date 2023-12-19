@@ -14,7 +14,7 @@ def test_demoqa():
     registration.fill_date_of_birth('1990', 'March', '10')
     registration.fill_subjects('Maths')
     registration.choose_hobbie('Reading')
-    registration.upload_picture()
+    registration.upload_picture('pepe.jpeg')
     registration.fill_current_address('omsk')
     registration.choose_state('NCR')
     registration.choose_city('Delhi')

@@ -1,5 +1,5 @@
-import os
 from selene import browser, have, be, command
+import script_os
 
 
 class StudentRegistrationPage:
@@ -34,9 +34,8 @@ class StudentRegistrationPage:
     def choose_hobbie(self, param):
         browser.element(f"//*[text()='{param}']/parent::*").click()
 
-    def upload_picture(self):
-        (browser.element("#uploadPicture").perform(command.js.scroll_into_view)
-         .send_keys(os.path.abspath("../tests/pictures/pepe.jpeg")))
+    def upload_picture(self, name):
+        browser.element("#uploadPicture").perform(command.js.scroll_into_view).send_keys(script_os.path(name))
 
     def scroll(self):
         browser.execute_script("window.scrollTo(0,500)")
@@ -70,7 +69,3 @@ class StudentRegistrationPage:
 
     def close_tab(self):
         browser.element("[data-testid=ClearIcon]").click()
-
-
-
-
