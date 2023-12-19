@@ -89,8 +89,6 @@ class StudentRegistrationPage:
     def should_registered_user_with(self, full_name, email, gender,
                                     phone, date, subjects, hobbies,
                                     picture, address, state_city):
-
-
         browser.element('.table').all('td').even.should(
             have.exact_texts(
                 full_name,
@@ -107,8 +105,8 @@ class StudentRegistrationPage:
         )
         return self
 
-    def should_have_header(self):
-        browser.element(".modal-header").should(have.text("Thanks for submitting the form"))
+    def read_modal_header(self):
+        return browser.element(".modal-header")
 
 
 

@@ -21,7 +21,7 @@ def test_demoqa():
     registration.choose_city('Delhi')
     registration.submit_form()
     #Then
-    registration.should_have_header()
+    registration.read_modal_header().should(have.text("Thanks for submitting the form"))
     #registration.should_regitered_with()
     registration.should_registered_user_with('Kek Cheburek',
                                              'kekovich@mail.ru',
