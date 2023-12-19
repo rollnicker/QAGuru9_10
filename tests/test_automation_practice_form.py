@@ -6,6 +6,7 @@ def test_demoqa():
     registration = StudentRegistrationPage()
 
     registration.open()
+    #When
     registration.fill_name("Kek")
     registration.fill_last_name("Cheburek")
     registration.fill_email("kekovich@mail.ru")
@@ -19,18 +20,17 @@ def test_demoqa():
     registration.choose_state('NCR')
     registration.choose_city('Delhi')
     registration.submit_form()
-
-    browser.element(".modal-header").should(have.text("Thanks for submitting the form"))
-    browser.element(".modal-body").should(have.exact_text(
-        'Label Values\n' 
-        'Student Name Kek Cheburek\n' 
-        'Student Email kekovich@mail.ru\n' 
-        'Gender Female\n' 
-        'Mobile 8985123456\n' 
-        'Date of Birth 10 December,1990\n' 
-        'Subjects Maths\n' 
-        'Hobbies Reading\n' 
-        'Picture pepe.jpeg\n' 
-        'Address omsk\n' 
-        'State and City NCR Delhi'
-    ))
+    #Then
+    registration.should_have_header()
+    registration.should_regitered_with()
+    registration.should_registered_user_with('Kek Cheburek',
+                                             'vkekovich@mail.ru',
+                                             'Female',
+                                             8985123456,
+                                             '10 December,1990',
+                                             'Maths',
+                                             'Reading',
+                                             'pepe.jpeg',
+                                             'omsk',
+                                             'NCR Delhi'
+                                             )

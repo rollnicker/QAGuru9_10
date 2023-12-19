@@ -71,6 +71,44 @@ class StudentRegistrationPage:
     def close_tab(self):
         browser.element("[data-testid=ClearIcon]").click()
 
+    def should_regitered_with(self):
+        browser.element(".modal-body").should(have.exact_text(
+            'Label Values\n'
+            'Student Name Kek Cheburek\n'
+            'Student Email kekovich@mail.ru\n'
+            'Gender Female\n'
+            'Mobile 8985123456\n'
+            'Date of Birth 10 December,1990\n'
+            'Subjects Maths\n'
+            'Hobbies Reading\n'
+            'Picture pepe.jpeg\n'
+            'Address omsk\n'
+            'State and City NCR Delhi'
+        ))
+
+    def should_registered_user_with(self, full_name, email, gender,
+                                    phone, date, subjects, hobbies,
+                                    picture, address, state_city):
+
+
+        browser.element('.table').all('td').even.should(
+            have.exact_texts(
+                full_name,
+                email,
+                gender,
+                phone,
+                date,
+                subjects,
+                hobbies,
+                picture,
+                address,
+                state_city,
+            )
+        )
+        return self
+
+    def should_have_header(self):
+        browser.element(".modal-header").should(have.text("Thanks for submitting the form"))
 
 
 
