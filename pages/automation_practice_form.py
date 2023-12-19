@@ -105,6 +105,7 @@ class StudentRegistrationPage:
         )
         return self
 
+    @property
     def read_modal_header(self):
         return browser.element(".modal-header")
 
