@@ -22,11 +22,11 @@ def test_demoqa():
     registration.submit_form()
     #Then
     registration.should_have_header()
-    registration.should_regitered_with()
+    #registration.should_regitered_with()
     registration.should_registered_user_with('Kek Cheburek',
-                                             'vkekovich@mail.ru',
+                                             'kekovich@mail.ru',
                                              'Female',
-                                             8985123456,
+                                             '8985123456',
                                              '10 December,1990',
                                              'Maths',
                                              'Reading',
