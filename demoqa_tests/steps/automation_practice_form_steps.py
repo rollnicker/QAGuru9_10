@@ -1,6 +1,5 @@
 from selene import browser
-
-from demoqa_tests.pages.automation_practice_form_page import StudentRegistrationPage
+from demoqa_tests.pages.registration_page import StudentRegistrationPage
 
 
 class StudentRegistrationSteps:
