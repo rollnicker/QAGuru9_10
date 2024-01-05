@@ -15,19 +15,18 @@ def test_demoqa():
     registration.fill_date_of_birth('1990', 'March', '10')
     registration.fill_subjects('Maths')
     registration.choose_hobbie('Reading')
-    registration.upload_picture()
+    registration.upload_picture('pepe.jpeg')
     registration.fill_current_address('omsk')
     registration.choose_state('NCR')
     registration.choose_city('Delhi')
     registration.submit_form()
     #Then
     registration.read_modal_header.should(have.text("Thanks for submitting the form"))
-    #registration.should_regitered_with()
     registration.should_registered_user_with('Kek Cheburek',
                                              'kekovich@mail.ru',
                                              'Female',
                                              '8985123456',
-                                             '10 December,1990',
+                                             '10 March,1990',
                                              'Maths',
                                              'Reading',
                                              'pepe.jpeg',

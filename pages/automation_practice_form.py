@@ -1,5 +1,6 @@
 import os
 from selene import browser, have, be, command
+import script_os
 
 
 class StudentRegistrationPage:
@@ -24,7 +25,7 @@ class StudentRegistrationPage:
     def fill_date_of_birth(self, year, month, day):
         browser.element("#dateOfBirthInput").click()
         browser.all(".react-datepicker__year-select>option").element_by(have.text(year)).click()
-        browser.all(".react-datepicker__month-select").element_by(have.text(month)).click()
+        browser.all(".react-datepicker__month-select>option").element_by(have.text(month)).click()
         browser.all(".react-datepicker__day").element_by(have.text(day)).click()
 
     def fill_subjects(self, *subject):
@@ -34,9 +35,9 @@ class StudentRegistrationPage:
     def choose_hobbie(self, param):
         browser.element(f"//*[text()='{param}']/parent::*").click()
 
-    def upload_picture(self):
+    def upload_picture(self, file_name):
         (browser.element("#uploadPicture").perform(command.js.scroll_into_view)
-         .send_keys(os.path.abspath("../tests/pictures/pepe.jpeg")))
+         .send_keys(os.path.abspath(script_os.path(file_name))))
 
     def scroll(self):
         browser.execute_script("window.scrollTo(0,500)")
