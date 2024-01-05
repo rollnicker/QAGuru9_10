@@ -1,4 +1,4 @@
-from selene import browser, have
+from selene import have
 from pages.automation_practice_form import StudentRegistrationPage
 
 
@@ -6,7 +6,6 @@ def test_demoqa():
     registration = StudentRegistrationPage()
 
     registration.open()
-    #When
     registration.fill_name("Kek")
     registration.fill_last_name("Cheburek")
     registration.fill_email("kekovich@mail.ru")
@@ -20,7 +19,6 @@ def test_demoqa():
     registration.choose_state('NCR')
     registration.choose_city('Delhi')
     registration.submit_form()
-    #Then
     registration.read_modal_header.should(have.text("Thanks for submitting the form"))
     registration.should_registered_user_with('Kek Cheburek',
                                              'kekovich@mail.ru',
