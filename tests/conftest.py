@@ -1,5 +1,5 @@
 import pytest
-from selene import browser
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene import Browser, Config
@@ -7,8 +7,8 @@ from selene import Browser, Config
 from utils import attach
 
 
-@pytest.fixture(scope='function', autouse=True)
-def browser_open(request):
+@pytest.fixture(scope='function')
+def setup_browser(request):
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
@@ -25,8 +25,6 @@ def browser_open(request):
     )
 
     browser = Browser(Config(driver))
-    browser.config.base_url = "https://demoqa.com"
-
     yield browser
 
     attach.add_screenshot(browser)
