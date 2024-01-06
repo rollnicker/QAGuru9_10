@@ -7,17 +7,18 @@ from selene import browser
 from utils import attach
 
 
-@pytest.fixture(scope='function')
-def setup_browser(request):
+@pytest.fixture()
+def setup_browser():
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
         "browserVersion": "100.0",
         "selenoid:options": {
-            "enableVNC": False,
-            "enableVideo": False
+            "enableVNC": True,
+            "enableVideo": True
         }
     }
+
     options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(
         command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
