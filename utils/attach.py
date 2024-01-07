@@ -26,8 +26,9 @@ def add_video(browser):
     allure.attach(html, 'video_' + browser.driver.session_id, AttachmentType.HTML, '.html')
 
 
-par_dir = os.path.pardir
-RES_DIR = os.path.join(par_dir, "resources")
+CURRENT_FILE = os.path.abspath(__file__)
+CURRENT_DIR = os.path.dirname(CURRENT_FILE)
+RES_DIR = os.path.join(CURRENT_FILE, "resources")
 
 
 def path(file_name):
