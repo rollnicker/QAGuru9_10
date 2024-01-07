@@ -1,5 +1,5 @@
 from selene import browser, have, command
-from utils import attach
+from utils import resource_path
 
 
 class StudentRegistrationPage:
@@ -63,7 +63,7 @@ class StudentRegistrationPage:
         self.hobbies.element_by(have.text(hobbie)).click()
 
     def upload_picture(self, name):
-        self.picture.perform(command.js.scroll_into_view).send_keys(attach.path(name))
+        self.picture.perform(command.js.scroll_into_view).send_keys(resource_path.path(name))
 
     def fill_current_address(self, address):
         self.current_address.type(address)
