@@ -31,8 +31,9 @@ CURRENT_DIR = os.path.dirname(CURRENT_FILE)
 PAR_DIR = os.path.join(os.path.pardir)
 lel = os.path.relpath(PAR_DIR)
 RES_DIR = os.path.join(lel, "resources")
+kek = os.path.abspath(RES_DIR)
 
 print(CURRENT_DIR)
 
 def path(file_name):
-    return os.path.join(RES_DIR, file_name)
+    return os.path.join(kek, file_name)
