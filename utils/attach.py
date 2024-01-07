@@ -28,10 +28,12 @@ def add_video(browser):
 
 CURRENT_FILE = os.path.abspath(__file__)
 CURRENT_DIR = os.path.dirname(CURRENT_FILE)
-PAR_DIR = os.path.abspath(os.path.pardir)
-RES_DIR = os.path.join(PAR_DIR, "resources")
+RES_DIR = os.path.abspath(os.pardir)
+res_DIR = os.path.join(os.pardir, "resources")
+RES_DIR = os.path.abspath(res_DIR)
 
-print(PAR_DIR)
+print(RES_DIR)
+
 
 def path(file_name):
     return os.path.join(RES_DIR, file_name)
