@@ -1,5 +1,6 @@
 import allure
 from allure_commons.types import AttachmentType
+import os.path
 
 
 def add_screenshot(browser):
@@ -23,3 +24,11 @@ def add_video(browser):
            + video_url \
            + "' type='video/mp4'></video></body></html>"
     allure.attach(html, 'video_' + browser.driver.session_id, AttachmentType.HTML, '.html')
+
+
+par_dir = os.path.pardir
+RES_DIR = os.path.join(par_dir, "resources")
+
+
+def path(file_name):
+    return os.path.join(RES_DIR, file_name)

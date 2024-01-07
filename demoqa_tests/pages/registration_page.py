@@ -1,5 +1,5 @@
 from selene import browser, have, command
-import script_os
+from utils import attach
 
 
 class StudentRegistrationPage:
@@ -63,7 +63,7 @@ class StudentRegistrationPage:
         self.hobbies.element_by(have.text(hobbie)).click()
 
     def upload_picture(self, name):
-        self.picture.perform(command.js.scroll_into_view).send_keys(script_os.path(name))
+        self.picture.perform(command.js.scroll_into_view).send_keys(attach.path(name))
 
     def fill_current_address(self, address):
         self.current_address.type(address)
@@ -113,35 +113,3 @@ class StudentRegistrationPage:
     @property
     def read_modal_header(self):
         return browser.element(".modal-header")
-
-    '''
-        def close_large_modal(self):
-            browser.element("#closeLargeModal").press_enter()
-
-        def close_tab(self):
-            browser.element("[data-testid=ClearIcon]").click()
-
-            def should_regitered_with(self):
-            browser.element(".modal-body").should(have.exact_text(
-                'Label Values\n'
-                'Student Name Kek Cheburek\n'
-                'Student Email kekovich@mail.ru\n'
-                'Gender Female\n'
-                'Mobile 8985123456\n'
-                'Date of Birth 10 December,1990\n'
-                'Subjects Maths\n'
-                'Hobbies Reading\n'
-                'Picture pepe.jpeg\n'
-                'Address omsk\n'
-                'State and City NCR Delhi'
-            ))
-            
-            def scroll(self):
-        browser.execute_script("window.scrollTo(0,500)")
-        
-            def choose_state_old(self):
-        browser.element("#state").click()
-        browser.element("#react-select-3-option-0").should(be.visible).click()
-        browser.element("#city").click()
-        browser.element("#react-select-4-option-0").click()
-       '''
