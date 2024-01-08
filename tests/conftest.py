@@ -14,9 +14,11 @@ def pytest_addoption(parser):
         choices=['100.0', '99.0']
     )
 
+
 @pytest.fixture(scope='session', autouse=True)
 def load_env():
     load_dotenv()
+
 
 DEFAULT_BROWSER_VERSION = "100.0"
 
