@@ -4,7 +4,7 @@ from utils import resource_path
 
 class StudentRegistrationPage:
     def __init__(self):
-        self.browser_page = "https://demoqa.com/automation-practice-form"
+        self.browser_page = "/automation-practice-form"
         self.name = browser.element("#firstName")
         self.last_name = browser.element("#lastName")
         self.email = browser.element("#userEmail")
