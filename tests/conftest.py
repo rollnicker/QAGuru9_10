@@ -10,13 +10,13 @@ from utils import attach
 def pytest_addoption(parser):
     parser.addoption(
         '--browser_version',
-        default='100.0'
+        default='100.0',
+        choices=['100.0', '99.0']
     )
 
 @pytest.fixture(scope='session', autouse=True)
 def load_env():
     load_dotenv()
-
 
 DEFAULT_BROWSER_VERSION = "100.0"
 
